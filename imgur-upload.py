@@ -6,7 +6,6 @@ import json
 import tempfile
 import urllib
 import urllib2
-import sys
 import webbrowser
 from base64 import b64encode
 
@@ -43,7 +42,7 @@ def upload_to_imgur(image, layer):
         if(response['success']):
             webbrowser.open(response['data']['link'])
         else:
-            print(j1)
+            gimp.message(j1)
     except Exception as err:
         gimp.message("Unexpected error: " + str(err))
     
