@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from gimpfu import *
+import os
 import json
 import tempfile
 import urllib
@@ -28,7 +29,7 @@ def upload_to_imgur(image, layer):
     try:
         # Save as PNG
         outputFolder = tempfile.gettempdir()
-        f = outputFolder + "\\" + layer.name + ".png"
+        f = os.path.join(outputFolder, layer.name + ".png")
         gimp.pdb.file_png_save(image, layer, f, "raw_filename", 0, 9, 0, 0, 0, 0, 0)
         data = urllib.urlencode({
                 'key': api_key, 

@@ -2,6 +2,7 @@
 
 from gimpfu import *
 import json
+import os
 import tempfile
 import urllib
 import urllib2
@@ -10,11 +11,12 @@ import webbrowser
 from base64 import b64encode
 
 
-def upload_to_imgur(image):
+def upload_to_imgur(image, layer):
     ''' Flatten and then save as PNG file, and then uploads to imgur. 
     
     Parameters:
     image : image The current image.
+    layer : the current layer
     '''
 
     api_key = 'c4622163d7339fe'
@@ -27,7 +29,7 @@ def upload_to_imgur(image):
     try:
         # Save as PNG
         outputFolder = tempfile.gettempdir()
-        f = outputFolder + "\\" + "imgur.png"
+        f = os.path.join(outputFolder, "imgur.png")
         gimp.pdb.file_png_save(image, image.flatten(), f, "raw_filename", 0, 9, 0, 0, 0, 0, 0)
         data = urllib.urlencode({
                 'key': api_key, 
