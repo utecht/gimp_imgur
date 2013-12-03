@@ -1,1 +1,5 @@
 A very simple gimp plugin to upload the current image anonymously to Imgur.
+
+To install simply copy whichever files you want into your GIMP plug-in directoy.  Normally located in <GIMP Install>/lib/gimp/2.0/plug-ins
+
+This has only been tested in GIMP 2.8 on Windows 7.
