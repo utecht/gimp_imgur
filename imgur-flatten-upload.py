@@ -44,7 +44,7 @@ def upload_to_imgur(image, layer):
     try:
         # Save as PNG
         outputFolder = tempfile.gettempdir()
-        f = os.path.join(outputFolder, "imgur.png")
+        f = os.path.join(outputFolder, layer.name + ".png")
         gimp.pdb.file_png_save(image, image.flatten(), f, "raw_filename", 0, 9, 0, 0, 0, 0, 0)
         data = urllib.urlencode({
                 'key': api_key, 
